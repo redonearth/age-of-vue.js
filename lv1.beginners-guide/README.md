@@ -1,3 +1,3 @@
-# Age of Vue.js
+# LV1. Beginners Guide [Age of Vue.js]
 
-캡틴판교의 Vue.js 강의 학습 내용 정리
+입문자 강의 학습 내용 정리
