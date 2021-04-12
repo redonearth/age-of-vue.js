@@ -24,4 +24,7 @@ export default {
 </script>
 
 <style>
+* {
+  font-family: "Ubuntu";
+}
 </style>
