@@ -1,6 +1,11 @@
 <template>
   <div class="input-box shadow">
-    <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo" />
+    <input
+      type="text"
+      v-model="newTodoItem"
+      v-on:keyup.enter="addTodo"
+      placeholder="Type what you have to do!"
+    />
     <span class="add-container" v-on:click="addTodo">
       <i class="fas fa-plus add-btn"></i>
     </span>
