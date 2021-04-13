@@ -30,7 +30,10 @@ export default {
         item: todoItem,
       };
       localStorage.setItem(todoItem, JSON.stringify(obj));
-      this.todoItems.push(obj);
+
+      if (!this.todoItems.some((data) => data.item === todoItem)) {
+        this.todoItems.push(obj);
+      }
     },
     removeOneItem: function (todoItem, index) {
       localStorage.removeItem(todoItem.item);
