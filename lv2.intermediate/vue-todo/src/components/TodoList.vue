@@ -24,13 +24,12 @@
 
 <script>
 export default {
-  props: ["propsdata"],
   methods: {
     removeTodo(todoItem, index) {
-      this.$emit("removeTodoItem", todoItem, index);
+      this.$store.commit("removeOneItem", { todoItem, index });
     },
     toggleComplete(todoItem, index) {
-      this.$emit("toggleTodoItem", todoItem, index);
+      this.$store.commit("toggleOneItem", { todoItem, index });
     },
   },
 };
