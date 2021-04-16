@@ -1,3 +1,3 @@
-# LV1. Beginners Guide [Age of Vue.js]
+``LV1. Beginners Guide - Vue.js 시작하기``
 
-입문자 강의 학습 내용 정리
+학습 내용 정리
