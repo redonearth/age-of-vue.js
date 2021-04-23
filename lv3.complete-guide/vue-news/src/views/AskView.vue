@@ -1,8 +1,11 @@
 <template>
   <div>
-    <div v-for="ask in fetchedAsk" :key="ask.id">
-      {{ ask.title }}
-    </div>
+    <p v-for="ask in fetchedAsk" :key="ask.id">
+      <a :href="ask.url">
+        {{ ask.title }}
+      </a>
+      <small>{{ ask.time_ago }} by {{ ask.user }}</small>
+    </p>
   </div>
 </template>
 
