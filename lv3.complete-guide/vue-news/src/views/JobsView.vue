@@ -1,11 +1,31 @@
 <template>
   <div>
-    <p v-for="job in this.$store.state.jobs" :key="job.id">
-      <a :href="job.url">
-        {{ job.title }}
-      </a>
-      <small>{{ job.time_ago }}, {{ job.domain }}</small>
-    </p>
+    <ul class="news-list">
+      <li
+        v-for="item in this.$store.state.jobs"
+        :key="item.id"
+        class="news-item"
+      >
+        <!-- 포인트 영역 -->
+        <div class="points">
+          {{ item.points || 0 }}
+        </div>
+        <!-- 기타 정보 영역 -->
+        <div>
+          <p class="news-title">
+            <a :href="item.url">
+              {{ item.title }}
+            </a>
+            <small class="link-text">
+              {{ item.time_ago }},
+              <a :href="item.url">
+                {{ item.domain }}
+              </a>
+            </small>
+          </p>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -17,5 +37,29 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.news-list {
+  margin: 0;
+  padding: 0;
+}
+.news-item {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+.points {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 60px;
+  color: #42b883;
+}
+.news-title {
+  margin: 0;
+}
+.link-text {
+  color: #828282;
+}
 </style>

@@ -16,7 +16,6 @@ header {
 }
 header a {
   color: white;
-  text-decoration: none;
 }
 header a:not(:last-child) {
   margin-right: 16px;
