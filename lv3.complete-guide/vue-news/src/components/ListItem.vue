@@ -60,18 +60,7 @@ export default {
   },
   computed: {
     listItems() {
-      const name = this.$route.name;
-      const state = this.$store.state;
-      switch (name) {
-        case "news":
-          return state.news;
-        case "ask":
-          return state.ask;
-        case "jobs":
-          return state.jobs;
-        default:
-          return false;
-      }
+      return this.$store.state.list;
     },
   },
 };
