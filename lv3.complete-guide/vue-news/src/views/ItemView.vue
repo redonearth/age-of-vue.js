@@ -1,21 +1,15 @@
 <template>
   <div>
     <section>
-      <!-- 질문 상세 정보 -->
-      <div class="user-container">
-        <div>
-          <font-awesome-icon
-            :icon="['fas', 'user']"
-            class="user-icon"
-          ></font-awesome-icon>
-        </div>
-        <div class="user-description">
-          <router-link :to="`/user/${itemInfo.user}`">
-            {{ itemInfo.user }}
-          </router-link>
-          <div class="time">{{ itemInfo.time_ago }}</div>
-        </div>
-      </div>
+      <!-- 사용자 정보 -->
+      <user-profile :info="itemInfo">
+        <router-link slot="username" :to="`/user/${itemInfo.user}`">
+          {{ itemInfo.user }}
+        </router-link>
+        <template slot="time">{{ `Posted ${itemInfo.time_ago}` }}</template>
+      </user-profile>
+    </section>
+    <section>
       <h2>{{ itemInfo.title }}</h2>
     </section>
     <section>
@@ -29,7 +23,12 @@
 </template>
 
 <script>
+import UserProfile from "../components/UserProfile.vue";
+
 export default {
+  components: {
+    UserProfile,
+  },
   computed: {
     itemInfo() {
       return this.$store.state.item;
@@ -48,15 +47,12 @@ export default {
   align-items: center;
   padding: 0.5rem;
 }
-
 .user-icon {
   font-size: 2.5rem;
 }
-
 .user-description {
   padding-left: 8px;
 }
-
 .time {
   font-size: 0.7rem;
 }
