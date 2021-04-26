@@ -42,22 +42,6 @@
 
 <script>
 export default {
-  created() {
-    const name = this.$route.name;
-    let actionName;
-    switch (name) {
-      case "news":
-        actionName = "FETCH_NEWS";
-        break;
-      case "ask":
-        actionName = "FETCH_ASK";
-        break;
-      case "jobs":
-        actionName = "FETCH_JOBS";
-        break;
-    }
-    this.$store.dispatch(actionName);
-  },
   computed: {
     listItems() {
       return this.$store.state.list;
