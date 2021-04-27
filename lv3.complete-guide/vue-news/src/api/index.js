@@ -16,8 +16,13 @@ const fetchAskList = () => {
   return axios.get(`${config.baseUrl}ask/1.json`);
 };
 
-const fetchList = (pageName) => {
-  return axios.get(`${config.baseUrl}${pageName}/1.json`);
+const fetchList = async (pageName) => {
+  try {
+    const response = await axios.get(`${config.baseUrl}${pageName}/1.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const fetchUserInfo = (username) => {
