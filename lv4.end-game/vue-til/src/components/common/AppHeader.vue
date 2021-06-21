@@ -1,7 +1,12 @@
 <template>
   <header>
-    <router-link to="/login">로그인</router-link> |
-    <router-link to="/signup">회원가입</router-link>
+    <div>
+      <router-link to="/" class="logo">TIL</router-link>
+    </div>
+    <div class="navigations">
+      <router-link to="/login">로그인</router-link>
+      <router-link to="/signup">회원가입</router-link>
+    </div>
   </header>
 </template>
 
@@ -9,4 +14,30 @@
 export default {};
 </script>
 
-<style></style>
+<style scoped>
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #7da1fc;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);
+  z-index: 2;
+}
+a {
+  color: #dedede;
+  font-size: 1.25rem;
+}
+a.logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: white;
+}
+.navigations a:last-child {
+  margin-left: 15px;
+}
+a.router-link-exact-active {
+  color: white;
+  font-weight: bold;
+}
+</style>
