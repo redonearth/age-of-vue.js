@@ -4,18 +4,38 @@
       <router-link to="/" class="logo">TIL</router-link>
     </div>
     <div class="navigations">
-      <span>{{ $store.state.nickname }}</span>
-      <router-link to="/login">로그인</router-link>
-      <router-link to="/signup">회원가입</router-link>
+      <template v-if="isUserLogin">
+        <span class="nickname">{{ $store.state.nickname }}</span>
+        <a href="javascript:;" @click="logoutUser">로그아웃</a>
+      </template>
+      <template v-else>
+        <router-link to="/login">로그인</router-link>
+        <router-link to="/signup">회원가입</router-link>
+      </template>
     </div>
   </header>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    isUserLogin() {
+      return this.$store.getters.isLogin;
+    },
+  },
+  methods: {
+    logoutUser() {
+      this.$store.commit('clearNickname');
+      this.$router.push('/login');
+    },
+  },
+};
 </script>
 
 <style scoped>
+.nickname {
+  color: white;
+}
 header {
   display: flex;
   justify-content: space-between;
