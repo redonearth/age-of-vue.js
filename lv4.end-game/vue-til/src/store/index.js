@@ -5,6 +5,11 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    username: '',
+    nickname: '',
+  },
+  mutations: {
+    setNickname(state, nickname) {
+      state.nickname = nickname;
+    },
   },
 });

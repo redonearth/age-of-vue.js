@@ -4,6 +4,7 @@
       <router-link to="/" class="logo">TIL</router-link>
     </div>
     <div class="navigations">
+      <span>{{ $store.state.nickname }}</span>
       <router-link to="/login">로그인</router-link>
       <router-link to="/signup">회원가입</router-link>
     </div>
@@ -33,7 +34,7 @@ a.logo {
   font-weight: 900;
   color: white;
 }
-.navigations a:last-child {
+.navigations a {
   margin-left: 15px;
 }
 a.router-link-exact-active {

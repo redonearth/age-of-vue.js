@@ -54,6 +54,7 @@ export default {
         };
         const { data } = await loginUser(userData);
         console.log(data.user.username);
+        this.$store.commit('setNickname', data.user.nickname);
         this.$router.push('/main');
         // this.logMessage = `${data.user.nickname} 님, 환영합니다.`;
       } catch (error) {
