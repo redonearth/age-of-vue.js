@@ -1,12 +1,16 @@
 <template>
   <header>
     <div>
-      <router-link to="/" class="logo">TIL</router-link>
+      <router-link to="/" class="logo">
+        TIL
+        <span v-if="isUserLogin">by {{ $store.state.nickname }}</span>
+      </router-link>
     </div>
     <div class="navigations">
       <template v-if="isUserLogin">
-        <span class="nickname">{{ $store.state.nickname }}</span>
-        <a href="javascript:;" @click="logoutUser">로그아웃</a>
+        <a href="javascript:;" @click="logoutUser" class="logout-button">
+          로그아웃
+        </a>
       </template>
       <template v-else>
         <router-link to="/login">로그인</router-link>
@@ -33,9 +37,6 @@ export default {
 </script>
 
 <style scoped>
-.nickname {
-  color: white;
-}
 header {
   display: flex;
   justify-content: space-between;
@@ -54,8 +55,15 @@ a.logo {
   font-weight: 900;
   color: white;
 }
+.logo > span {
+  font-size: 1.2rem;
+  font-weight: normal;
+}
 .navigations a {
   margin-left: 15px;
+}
+.logout-button {
+  font-size: 1.25rem;
 }
 a.router-link-exact-active {
   color: white;
