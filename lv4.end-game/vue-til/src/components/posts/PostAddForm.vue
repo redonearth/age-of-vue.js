@@ -46,6 +46,7 @@ export default {
           contents: this.contents,
         });
         console.log(data);
+        this.$router.push('/main');
       } catch (error) {
         console.error(error.response.data.message);
         this.logMessage = error.response.data.message;
