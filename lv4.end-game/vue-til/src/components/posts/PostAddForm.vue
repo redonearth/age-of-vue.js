@@ -12,20 +12,37 @@
         </div>
         <button type="submit" class="btn">등록하기</button>
       </form>
+      <p class="log">
+        {{ logMessage }}
+      </p>
     </div>
   </div>
 </template>
 
 <script>
+import { createPost } from '@/api/index';
+
 export default {
   data() {
     return {
       title: '',
       contents: '',
+      logMessage: '',
     };
   },
   methods: {
-    submitForm() {},
+    async submitForm() {
+      try {
+        const { data } = await createPost({
+          title: this.title,
+          contents: this.contents,
+        });
+        console.log(data);
+      } catch (error) {
+        console.error(error.response.data.message);
+        this.logMessage = error.response.data.message;
+      }
+    },
   },
 };
 </script>
