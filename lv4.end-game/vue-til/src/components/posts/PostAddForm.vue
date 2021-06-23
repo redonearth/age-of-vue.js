@@ -8,7 +8,10 @@
         </div>
         <div>
           <label for="contents">내용</label>
-          <textarea id="contents" type="text" rows="10" v-model="contents" />
+          <textarea id="contents" type="text" rows="5" v-model="contents" />
+          <p v-if="!isContentsValid" class="validation-text warning">
+            글자 수는 200자 이하여야 합니다.
+          </p>
         </div>
         <button type="submit" class="btn">등록하기</button>
       </form>
@@ -29,6 +32,11 @@ export default {
       contents: '',
       logMessage: '',
     };
+  },
+  computed: {
+    isContentsValid() {
+      return this.contents.length <= 200;
+    },
   },
   methods: {
     async submitForm() {
